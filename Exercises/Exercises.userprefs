@@ -2,7 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Space Shooter\Player.cs">
     <Files>
-      <File FileName="Assets\Scripts\Space Shooter\Player.cs" Line="57" Column="45" />
+      <File FileName="Assets\Scripts\Space Shooter\Player.cs" Line="45" Column="14" />
+      <File FileName="Assets\Scripts\Space Shooter\Enemy.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\iTween.cs" Line="6610" Column="1" />
+      <File FileName="Assets\Scripts\Space Shooter\EnemyLazer.cs" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\Space Shooter\PlayerLazer.cs" Line="14" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

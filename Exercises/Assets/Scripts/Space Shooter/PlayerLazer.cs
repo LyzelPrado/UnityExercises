@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lazer : MonoBehaviour {
+public class PlayerLazer : MonoBehaviour {
 	
 	public float projectileSpeed = 10.0f;
 	public GameObject Enemy;
@@ -13,7 +13,7 @@ public class Lazer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		transform.Translate(Vector3.up * projectileSpeed * Time.deltaTime);
+		iTween.MoveBy(gameObject, iTween.Hash("y", 20f, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "delay", 0f, "speed",5f));
 		
 		if(transform.position.y > 15)
 			DestroyObject(this.gameObject);

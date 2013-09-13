@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		//spawn point
 		// position the player
-		transform.position = new Vector3(0, -7, 7);
+		transform.position = new Vector3(0, 0, 0);
 		
 	
 	}

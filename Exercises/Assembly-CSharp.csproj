@@ -46,15 +46,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\C# Tutorial\CreateWall.cs" />
      <Compile Include="Assets\Scripts\Space Shooter\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Space Shooter\Lazer.cs" />
+     <Compile Include="Assets\Scripts\Space Shooter\EnemyLazer.cs" />
      <Compile Include="Assets\Scripts\Space Shooter\MyGUI.cs" />
      <Compile Include="Assets\Scripts\Space Shooter\Player.cs" />
+     <Compile Include="Assets\Scripts\Space Shooter\PlayerLazer.cs" />
+     <Compile Include="Assets\Scripts\iTween.cs" />
      <Compile Include="Assets\Scripts\iTweenExercise.cs" />
-     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
-     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
-     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
-     <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
-     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
