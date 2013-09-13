@@ -54,6 +54,8 @@ public class Player : MonoBehaviour {
 	
 	}
 	
+	//when player hit enemy, enemy will destroy
+	
 	void OnTriggerEnter(Collider collide)
 	{
 		if(collide.gameObject.CompareTag("Enemy"))
