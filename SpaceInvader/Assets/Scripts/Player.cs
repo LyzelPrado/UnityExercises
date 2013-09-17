@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	public float playerSpeed = 10.0f;
 	public static int playerLives=3;
 	public static int score = 0;
-	float timer = 0f;
+	public static float timer = 0f;
 
 	// reference prefab
 	public GameObject Lazer;
@@ -56,16 +56,21 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider collide)
 	{
 		if(collide.gameObject.CompareTag("Enemy"))
-		{
-
-			playerLives--;
-			renderer.enabled=false;
-			timer=Time.time;
+		
 			Enemy.y = -3.0f;
 			
-			if(playerLives == 0)
-			DestroyObject(this.gameObject);
+		if (collide.gameObject.CompareTag("Bullet"))
+		{
+			
+			
 		}
+		
+		playerLives--;
+		renderer.enabled=false;
+		timer=Time.time;
+		
+		if(playerLives == 0)
+			DestroyObject(this.gameObject);
 	}
 
 }
