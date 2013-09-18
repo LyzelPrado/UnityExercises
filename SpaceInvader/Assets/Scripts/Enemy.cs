@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 	
-	public static float y  = -3f;
+	/*public static float y  = -3f;
 	public static float x = 1.0f;
 	float leftBoundary = 1f;
-	float rightBoundary = 23f;
+	float rightBoundary = 23f;*/
 	
 	float startTime;
 	bool movingRight = true;
@@ -17,12 +17,22 @@ public class Enemy : MonoBehaviour {
     public float maxShootDelay = 7.0f;
     float nextShootTime = 0.0f;
 	
+	public float minSpeed = 3.0f;
+	public float maxSpeed = 5.0f;
+	int x,y,z;
+	public float currentSpeed;
+	
 
 	
 	// Use this for initialization
 	void Start () 
 	{
 		this.nextShootTime = Random.Range(minShootDelay, maxShootDelay)* 1f;
+		y=16;
+		z=0;
+		x=Random.Range(-15, 15);
+		transform.position= new Vector3(x, y, z);
+		currentSpeed= Random.Range(minSpeed,maxSpeed);
 		
 
 	}
@@ -30,8 +40,31 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		EnemyMovement();
+		RandomEnemy();
+		EnemyAttack();
 		
+		
+	
+		
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{	
+		Vector3 enemyPos = new Vector3(x,y,z);
+		Instantiate(gameObject, enemyPos, Quaternion.identity);
+
+		
+		if(collider.gameObject.CompareTag("PlayerLazer"))
+		{
+			Destroy(this.gameObject);
+		}
+
+	
+	}
+	
+
+	void EnemyAttack()
+	{
 		 if (Time.time > nextShootTime)
         {
 			Vector3 target = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
@@ -39,65 +72,19 @@ public class Enemy : MonoBehaviour {
             nextShootTime = (Time.time + Random.Range(minShootDelay, maxShootDelay)) * 5f;
 		
         }
-	
-		
-	}
-
-	void OnTriggerEnter(Collider collider)
-	{	
-
-		if(collider.gameObject.CompareTag("PlayerLazer"))
-		{
-			Destroy(this.gameObject);
-		}
-
-		if (collider.gameObject.CompareTag("Player"))
-		{
-			
-			Player.playerLives--;
-	
-		}
 	}
 	
-	void EnemyMovement()
+	void RandomEnemy()
 	{
-		float t = (Time.time - startTime) * 0.4f;
-        
-        if (movingRight)
-            x = Mathf.Lerp(leftBoundary, rightBoundary, t);
-        else
-            x = Mathf.Lerp(rightBoundary, leftBoundary, t);
-        
-        if (x > rightBoundary)
-        {
-            movingRight = false;
-			this.startTime = Time.time;
-            
-        }
-        else if (x < leftBoundary)
-        {
-            movingRight = true;
-            this.startTime = Time.time;
-        }
+		x=Random.Range(-15, 15);
+		transform.Translate(-Vector3.up * currentSpeed * Time.deltaTime);
 		
-		else if (x == rightBoundary)
+		
+		if(transform.position.y < -10)
 		{
-			
-			y= Mathf.Lerp(y,y -= 1.0f,t);
-			movingRight = false;
-			this.startTime = Time.time;
+			transform.position = new Vector3(x,y,z);
+			currentSpeed = Random.Range(minSpeed,maxSpeed);
 		}
-		
-		else if (x==leftBoundary)
-		{
-			y= Mathf.Lerp(y,y -= 1.0f,t);
-			movingRight= true;
-			this.startTime = Time.time;
-		}
-		
-        this.transform.position = new Vector3(x, y, -11);
-
-		
 	}
 
 	
