@@ -15,7 +15,7 @@ public class EnemyLazer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		iTween.MoveBy(gameObject, iTween.Hash("y", -20f, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "delay", 0f, "speed",5f));
+		iTween.MoveBy(gameObject, iTween.Hash("y", -20f, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "delay", 0f, "speed",10f));
 
 		if(transform.position.y == -1)
 			DestroyObject(this.gameObject);

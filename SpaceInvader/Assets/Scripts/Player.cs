@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	public static int score = 0;
 	public static float timer = 0f;
 
-	// reference prefab
+	// reference prefabs
 	public GameObject Lazer;
 	//GameObject Enemy;
 
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
 	{
 		if(collide.gameObject.CompareTag("Enemy"))
 		
-			Enemy.y = -3.0f;
+			//Enemy.y = -3.0f;
 			
 		if (collide.gameObject.CompareTag("Bullet"))
 		{
@@ -70,7 +70,10 @@ public class Player : MonoBehaviour {
 		timer=Time.time;
 		
 		if(playerLives == 0)
+		{
 			DestroyObject(this.gameObject);
+			Application.LoadLevel(2);
+		}
 	}
 
 }
