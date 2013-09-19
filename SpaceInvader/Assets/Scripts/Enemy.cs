@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 	float rightBoundary = 23f;*/
 	
 	float startTime;
-	bool movingRight = true;
+
 
 	public GameObject EnemyLazerFab;
 	
@@ -43,21 +43,19 @@ public class Enemy : MonoBehaviour {
 		RandomEnemy();
 		EnemyAttack();
 		
-		
 	
 		
 	}
 
 	void OnTriggerEnter(Collider collider)
 	{	
-		Vector3 enemyPos = new Vector3(x,y,z);
-		Instantiate(gameObject, enemyPos, Quaternion.identity);
-
-		
+				
 		if(collider.gameObject.CompareTag("PlayerLazer"))
 		{
-			Destroy(this.gameObject);
+			Destroy(this.gameObject);	
 		}
+		
+		
 
 	
 	}
